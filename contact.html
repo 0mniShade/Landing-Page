@@ -6,7 +6,6 @@
 <title>Contact</title>
 
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="fade-out">
@@ -36,7 +35,7 @@
   </form>
 </section>
 
-<script src="script.js"></script>
+<script src="/script.js"></script>
 
 <script>
 document.getElementById("form").addEventListener("submit", function(e){
@@ -44,39 +43,30 @@ document.getElementById("form").addEventListener("submit", function(e){
 
   let valid = true;
 
-  const name = document.getElementById("name");
-  const email = document.getElementById("email");
-  const message = document.getElementById("message");
-
-  document.getElementById("nameError").textContent = "";
-  document.getElementById("emailError").textContent = "";
-  document.getElementById("msgError").textContent = "";
-
   if(name.value === ""){
-    document.getElementById("nameError").textContent = "Name required";
+    nameError.textContent = "Name required";
     valid = false;
   }
 
   if(!email.value.includes("@")){
-    document.getElementById("emailError").textContent = "Valid email required";
+    emailError.textContent = "Valid email required";
     valid = false;
   }
 
   if(message.value.length < 5){
-    document.getElementById("msgError").textContent = "Message too short";
+    msgError.textContent = "Message too short";
     valid = false;
   }
 
   if(valid){
-    const btn = document.getElementById("btn");
     btn.textContent = "Sending...";
     btn.disabled = true;
 
     setTimeout(() => {
       btn.textContent = "Send Message";
       btn.disabled = false;
-      document.getElementById("successMsg").textContent = "Message sent successfully!";
-      document.getElementById("form").reset();
+      successMsg.textContent = "Message sent!";
+      form.reset();
     }, 1500);
   }
 });
