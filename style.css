@@ -1,8 +1,13 @@
-/* Global Styles */
+/* Base */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  transition: background 0.3s, color 0.3s;
+  transition: opacity 0.5s ease, background 0.3s, color 0.3s;
+}
+
+/* Page transition */
+body.fade-out {
+  opacity: 0;
 }
 
 /* Header */
@@ -37,7 +42,6 @@ nav a {
   background: white;
   color: #4CAF50;
   font-weight: bold;
-  transition: 0.3s;
 }
 
 .hero button:hover {
@@ -67,24 +71,16 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 button:hover {
   transform: scale(1.05);
 }
 
-.error {
-  color: red;
-  font-size: 14px;
-}
+.error { color: red; }
+.success { color: green; }
 
-.success {
-  color: green;
-  margin-top: 10px;
-}
-
-/* Dark Mode */
+/* Dark mode */
 body.dark {
   background: #121212;
   color: #f5f5f5;
@@ -108,14 +104,4 @@ body.dark textarea {
 body.dark button {
   background: #333;
   color: white;
-}
-
-/* Page Transition */
-body {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-body.fade-out {
-  opacity: 0;
 }
