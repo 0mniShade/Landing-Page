@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body { font-family:'Poppins',sans-serif; margin:0; }
+header { background:#4CAF50; color:white; padding:20px; text-align:center; }
+nav a { color:white; margin:0 15px; text-decoration:none; font-weight:600; }
+
+.hero {
+  padding:100px 20px;
+  text-align:center;
+  background:linear-gradient(90deg,#4CAF50,#45a049);
+  color:white;
+}
+
+.hero button {
+  padding:12px 25px;
+  margin:10px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  background:white;
+  color:#4CAF50;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.hero button:hover { transform:scale(1.1); }
+
+section { padding:60px 20px; max-width:1000px; margin:auto; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>My Business</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Welcome to My Website</h2>
+  <p>We build modern, responsive and interactive websites.</p>
+  <button onclick="location.href='about.html'">Learn More</button>
+  <button onclick="location.href='contact.html'">Contact Us</button>
+</div>
+
+<section>
+  <h2>Our Services</h2>
+  <p>Web Development, UI/UX Design, Automation Solutions</p>
+</section>
+
+</body>
+</html>
