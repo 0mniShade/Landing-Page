@@ -1,13 +1,35 @@
 // =======================
-// 🌙 DARK MODE
+// WAIT FOR PAGE LOAD
 // =======================
+document.addEventListener("DOMContentLoaded", () => {
 
-// Load saved mode on page load
-if (localStorage.getItem("darkMode") === "enabled") {
-  document.body.classList.add("dark");
-}
+  // 🌙 Load Dark Mode
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+  }
 
-// Toggle dark mode
+  // 🎬 Fade IN
+  document.body.classList.remove("fade-out");
+
+  // 🎬 Handle page transitions
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+
+      if (href && !href.startsWith("#")) {
+        e.preventDefault();
+
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+});
+
+// 🌙 Toggle Dark Mode
 function toggleDarkMode() {
   document.body.classList.toggle("dark");
 
@@ -17,31 +39,3 @@ function toggleDarkMode() {
     localStorage.setItem("darkMode", "disabled");
   }
 }
-
-
-// =======================
-// 🎬 PAGE TRANSITIONS
-// =======================
-
-// Fade IN when page loads
-window.addEventListener("load", () => {
-  document.body.classList.remove("fade-out");
-});
-
-// Fade OUT when navigating
-document.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", function (e) {
-    const href = this.getAttribute("href");
-
-    // Ignore anchor links (#)
-    if (href && !href.startsWith("#")) {
-      e.preventDefault();
-
-      document.body.classList.add("fade-out");
-
-      setTimeout(() => {
-        window.location.href = href;
-      }, 500); // matches CSS transition time
-    }
-  });
-});
